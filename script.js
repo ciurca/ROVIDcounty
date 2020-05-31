@@ -17,7 +17,7 @@ function searchCases() {
         for (x in data.data.data){
             if (data.data.data[x]['county'] == searched || data.data.data[x]['county'].toLowerCase() == searched || latinize(data.data.data[x]['county']) == searched || latinize(data.data.data[x]['county']).toLowerCase() == searched || latinize(data.data.data[x]['county']) == searched) {
                 //document.getElementById("searchInput").className = "form-control is-invalid";
-                document.getElementById("searchedCases").innerHTML = `Total cases ${data.data.data[x]['county']}: ${data.data.data[x]['total_county']}`;
+                document.getElementById("searchedCases").innerHTML = `Total cases ${data.data.data[x]['county']}: ~${data.data.data[x]['total_county']}`;
             } else {
                // document.getElementById("searchInput").className = "form-control  is-invalid";
             }
@@ -25,7 +25,7 @@ function searchCases() {
     });
 }
 function dropCases(countyName, countyCases) {
-    document.getElementById("dropCases1").innerHTML = `Total cases ${countyName}: ${countyCases}`;
+    document.getElementById("dropCases1").innerHTML = `Total cases ${countyName}: ~${countyCases}`;
 }
 fetch("https://covid19.geo-spatial.org/api/dashboard/getCasesByCounty")
     .then(function(resp) {

@@ -9533,7 +9533,7 @@ fetch("https://covid19.geo-spatial.org/api/dashboard/getCasesByCounty")
 		// method that we will use to update the control based on feature properties passed
 		info.update = function (props) {
 			this._div.innerHTML = '<h4>Romania COVID-19 County Cases</h4>' +  (props ?
-				'<b>' + props["NAME_1"] + '</b><br />' + props.density + ' cases'
+				'<b>' + props["NAME_1"] + '</b><br />' + '~' + props.density + ' cases'
 				: 'Hover over a county');
 		};
 		info.addTo(map);
