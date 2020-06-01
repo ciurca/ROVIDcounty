@@ -9447,7 +9447,7 @@ var statesData = {
 
 const proxyurl1 = "https://cors-anywhere.herokuapp.com/";
 const url1 = "https://www.graphs.ro/json.php";
-	fetch(proxyurl1 + url1)
+	fetch('https://www.graphs.ro/json.php')
     .then(function(resp) {
         return resp.json();
     })
