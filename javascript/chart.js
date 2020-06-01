@@ -1,5 +1,5 @@
 function mapF(id){
-    fetch('https://www.graphs.ro/json.php')
+    fetch(proxyurl1 + url1)
     .then(function(resp) {
         return resp.json();
     })
@@ -17,8 +17,10 @@ function mapF(id){
         var label = `${data.covid_romania[0]['county_data'][countyId]['county_name']} weekly`;
         var labels = [dateF(6), dateF(5), dateF(4), dateF(3), dateF(2), dateF(1), dateF(0)];
         var ctx = document.getElementById('myChart').getContext('2d');
-        chart.destroy();
-        var chart = new Chart(ctx, {
+        if (window.bar != undefined){
+            window.bar.destroy();
+        }
+        window.bar = new Chart(ctx, {
             // The type of chart we want to create
             type: 'bar',
             // The data for our dataset
@@ -26,22 +28,24 @@ function mapF(id){
                 labels: labels,
                 datasets: [{
                     label: label,
-                    backgroundColor: [
-                        "rgb(255, 99, 132)",
-                        "rgb(255, 159, 64)",
-                        "rgb(255, 205, 86)",
-                        "rgb(75, 192, 192)",
-                        "rgb(54, 162, 235)",
-                        "rgb(153, 102, 255)",
-                        "rgb(201, 203, 207)"
-                    ],
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: weekData
+                    borderColor: 'rgb(2, 117, 216)',
+                    backgroundColor: 'rgb(2, 117, 216)',
+                    data: weekData,
                 }]
             },
 
             // Configuration options go here
-            options: {}
+            options: {
+                scales: {
+                    xAxes: [{
+                        display: false
+                    }],
+                 yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+            }
         });
     });
 }
