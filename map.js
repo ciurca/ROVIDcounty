@@ -2,7 +2,7 @@ var mapboxAccessToken = 'pk.eyJ1IjoiY2l1cmNhIiwiYSI6ImNrYXV3bWN6ZTE3aGozMW1zd3Q3
 var map = L.map('map').setView([45.8416, 24.9731], 5);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors. COVID-19 data from <a href="https://covid19.geo-spatial.org/" target="_blank">GeoSpatial</a>.'
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors. COVID-19 data from <a href="https://www.graphs.ro/resources.php" target="_blank">Graphs.ro</a>.'
 }).addTo(map);
 
 
@@ -1295,7 +1295,7 @@ var statesData = {
 			"ISO": "ROU",
 			"NAME_0": "Romania",
 			"ID_1": 6,
-			"NAME_1": "Bistrița-Năsăud",
+			"NAME_1": "Bistrița Năsăud",
 			"TYPE_1": "Judet",
 			"ENGTYPE_1": "County",
 			"NL_NAME_1": "",
@@ -2616,7 +2616,7 @@ var statesData = {
 			"ISO": "ROU",
 			"NAME_0": "Romania",
 			"ID_1": 13,
-			"NAME_1": "Caraș-Severin",
+			"NAME_1": "Caraș Severin",
 			"TYPE_1": "Judet",
 			"ENGTYPE_1": "County",
 			"NL_NAME_1": "",
@@ -9444,15 +9444,18 @@ var statesData = {
 		}
 	}]
 }
-fetch("https://covid19.geo-spatial.org/api/dashboard/getCasesByCounty")
+
+const proxyurl1 = "https://cors-anywhere.herokuapp.com/";
+const url1 = "https://www.graphs.ro/json.php";
+	fetch(proxyurl1 + url1)
     .then(function(resp) {
         return resp.json();
     })
     .then(function(data) {
 		for (y in statesData.features){
-			for (x in data.data.data){
-				if (data.data.data[x]['county'].toLowerCase() == statesData.features[y]["properties"]["NAME_1"].toLowerCase()) {
-					statesData.features[y]["properties"]["density"] = data.data.data[x]['total_county']	
+			for (x in data.covid_romania[0]['county_data']){
+				if (data.covid_romania[0]['county_data'][x]['county_name'].toLowerCase() == latinize(statesData.features[y]["properties"]["NAME_1"].toLowerCase())) {
+					statesData.features[y]["properties"]["density"] = data.covid_romania[0]['county_data'][x]['new_cases_today'];
 				}
 			}
 		}        		
@@ -9513,7 +9516,10 @@ fetch("https://covid19.geo-spatial.org/api/dashboard/getCasesByCounty")
 			layer.on({
 				mouseover: highlightFeature,
 				mouseout: resetHighlight,
-				click: zoomToFeature
+				click: zoomToFeature,
+			});
+			layer.on({
+				click: highlightFeature
 			});
 		}
 		

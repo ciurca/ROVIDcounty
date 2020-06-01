@@ -1,25 +1,16 @@
-function covidCases() {
-    fetch("https://covid19.geo-spatial.org/api/dashboard/getCasesByCounty")
-    .then(function(resp) {
-        return resp.json();
-    })
-    .then(function(data) {
-        document.getElementById("casesms").innerHTML = data.data.data[6]['total_county'];
-    });
-}
 function searchCases() {
     var searched = document.getElementById('searchInput').value;
-    fetch("https://covid19.geo-spatial.org/api/dashboard/getCasesByCounty")
+    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    const url = "https://www.graphs.ro/json.php";
+    fetch(proxyurl + url)
     .then(function(resp) {
         return resp.json();
     })
     .then(function(data) {
-        for (x in data.data.data){
-            if (data.data.data[x]['county'] == searched || data.data.data[x]['county'].toLowerCase() == searched || latinize(data.data.data[x]['county']) == searched || latinize(data.data.data[x]['county']).toLowerCase() == searched || latinize(data.data.data[x]['county']) == searched) {
+        for (x in data.covid_romania[0]['county_data']){
+            if (data.covid_romania[0]['county_data'][x]['county_name'] == searched || data.covid_romania[0]['county_data'][x]['county_name'].toLowerCase() == searched || data.covid_romania[0]['county_data'][x]['county_name'].toUpperCase() == searched) {
                 //document.getElementById("searchInput").className = "form-control is-invalid";
-                document.getElementById("searchedCases").innerHTML = `Total cases ${data.data.data[x]['county']}: ~${data.data.data[x]['total_county']}`;
-            } else {
-               // document.getElementById("searchInput").className = "form-control  is-invalid";
+                document.getElementById("searchedCases").innerHTML = `Total cases ${data.covid_romania[0]['county_data'][x]['county_name']}: ~${data.covid_romania[0]['county_data'][x]['new_cases_today']}`;
             }
         }
     });
@@ -27,15 +18,17 @@ function searchCases() {
 function dropCases(countyName, countyCases) {
     document.getElementById("dropCases1").innerHTML = `Total cases ${countyName}: ~${countyCases}`;
 }
-fetch("https://covid19.geo-spatial.org/api/dashboard/getCasesByCounty")
+
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const url = "https://www.graphs.ro/json.php";
+fetch(proxyurl + url)
     .then(function(resp) {
         return resp.json();
     })
     .then(function(data) {
-        for (var i in data.data.data) {
-            var id = data.data.data[i]['county'];
-            // var name = employee1[i].name;
+        for(var i in data.covid_romania[0]['county_data']) {
+            var id = data.covid_romania[0]['county_data'][i]['county_name'];
             var opt = document.createElement("A");
-            document.getElementById("dropCases").innerHTML += `<a class="dropdown-item" onclick="dropCases('${id}', ${data.data.data[i]['total_county']})">${id}</a>`;
-            }
+            document.getElementById("dropCases").innerHTML += `<a class="dropdown-item" onclick="dropCases('${id}', ${data.covid_romania[0]['county_data'][i]['new_cases_today']})">${id}</a>`;
+        }
     });
