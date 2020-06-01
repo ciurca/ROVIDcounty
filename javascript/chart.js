@@ -46,6 +46,7 @@ function mapF(id){
                         }
                     }]
             }
+        }
         });
     });
 }
