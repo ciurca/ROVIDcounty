@@ -37,15 +37,6 @@ function mapF(id){
 
             // Configuration options go here
             options: {
-                scales: {
-                    xAxes: [{
-                        display: false
-                    }],
-                 yAxes: [{
-                        ticks: {
-                        }
-                    }]
-            }
         }
         });
     });
