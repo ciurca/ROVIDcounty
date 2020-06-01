@@ -42,7 +42,6 @@ function mapF(id){
                     }],
                  yAxes: [{
                         ticks: {
-                            beginAtZero: true
                         }
                     }]
             }
