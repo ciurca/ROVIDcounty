@@ -28,9 +28,10 @@ function mapF(id){
                 labels: labels,
                 datasets: [{
                     label: label,
+                    data: weekData,
                     borderColor: 'rgb(2, 117, 216)',
                     backgroundColor: 'rgb(2, 117, 216)',
-                    data: weekData,
+                    borderWidth: 1
                 }]
             },
 
