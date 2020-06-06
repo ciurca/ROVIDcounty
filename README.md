@@ -21,3 +21,10 @@ Please support the projects above if you can, because this site wouldn't have be
 This website was created just as a means for me to better understand JavaScript and also practice it. It shouldn't be used as an actual means of getting COVID-19 Romania data, as there much better ways of getting the data (see [Graphs.ro](https://www.graphs.ro/)). 
 
 If you are affiliated in any way with any organization that thinks that this website is violating something and it should be taken down, please contact me personally on Twitter [@raduciurca](https://twitter.com/raduciurca).
+
+## Tasks/To dos
+
+- [ ] Add fallback COVID-19 County data
+- [ ] Add loading screen
+- [ ] Add error message
+- [ ] Add [ChartJs Datalabels Plugin](https://chartjs-plugin-datalabels.netlify.app/)
