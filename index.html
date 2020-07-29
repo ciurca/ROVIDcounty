@@ -37,6 +37,11 @@
     <div class="container h-100 d-flex">
         <div class="col">
             <h1>Romania COVID-19 cases by county</h1>
+			<div class="alert alert-warning" role="alert">
+  The site has gotten very slow, so please be patient. (This site is just a learning project, there are way better ways to check COVID-19 Romanian data.) 
+</div>
+			<h3>Last updated: <b id="last-update"><b></h3>
+			<hr>
             <h3>Search cases</h3>
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Example: BUCURESTI" aria-label="Search Cases" aria-describedby="basic-addon2" id="searchInput" onkeydown = "if (event.keyCode == 13)
@@ -46,10 +51,12 @@
                 </div>
             </div>
             <h5 id="searchedCases">Total cases EXAMPLE: XXXX</h5>
-
+		    <hr>
             <h3>Map</h3>
             <div id="map"></div> 
             <p></p>
+			<hr>
+			<h3>Chart</h3>
                         <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Select county

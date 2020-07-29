@@ -11,7 +11,7 @@ function mapF(id){
         };
         var countyId = id;
         function data1(day){
-            return data.covid_romania[day]['county_data'][countyId]['new_cases_today'];
+            return data.covid_romania[day]['county_data'][countyId]['total_cases'];
         }
         var weekData = [data1(6), data1(5), data1(4), data1(3), data1(2), data1(1), data1(0)];
         var label = `${data.covid_romania[0]['county_data'][countyId]['county_name']} weekly`;

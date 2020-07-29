@@ -9455,7 +9455,7 @@ const url1 = "https://www.graphs.ro/json.php";
 		for (y in statesData.features){
 			for (x in data.covid_romania[0]['county_data']){
 				if (data.covid_romania[0]['county_data'][x]['county_name'].toLowerCase() == latinize(statesData.features[y]["properties"]["NAME_1"].toLowerCase())) {
-					statesData.features[y]["properties"]["density"] = data.covid_romania[0]['county_data'][x]['new_cases_today'];
+					statesData.features[y]["properties"]["density"] = data.covid_romania[0]['county_data'][x]['total_cases'];
 				}
 			}
 		}        		
