@@ -29,40 +29,43 @@ function mapF(id){
                 datasets: [{
                     label: label,
                     data: weekData,
-                    borderColor: 'rgb(2, 117, 216)',
-                    backgroundColor: 'rgb(2, 117, 216)',
-                    borderWidth: 1
+/*                     borderColor: 'rgb(2, 117, 216)',
+                    backgroundColor: 'rgb(2, 117, 216)', */
+                    backgroundColor: '#ccddee',
+                    borderColor: '#5566aa',
                 }]
             },
 
             // Configuration options go here
             options: {
-                tooltips: {
-                    enabled: true
-                },
-                hover: {
-                    animationDuration: 1
-                },
-                animation: {
-                    duration: 1,
-                    onComplete: function () {
-                        var chartInstance = this.chart,
-                            ctx = chartInstance.ctx;
-                        ctx.textAlign = 'center';
-                        ctx.fillStyle = "rgba(0, 0, 0, 1)";
-                        ctx.textBaseline = 'bottom';
-
-                        this.data.datasets.forEach(function (dataset, i) {
-                            var meta = chartInstance.controller.getDatasetMeta(i);
-                            meta.data.forEach(function (bar, index) {
-                                var data = dataset.data[index];
-                                ctx.fillText(data, bar._model.x, bar._model.y - 5);
-
-                            });
-                        });
-                    }
+                legend: false,
+              tooltip: false,
+              plugins: {
+                datalabels: {
+                  align: function(context) {
+                      var index = context.dataIndex;
+                    var value = context.dataset.data[index];
+                    var invert = Math.abs(value) <= 1;
+                    return value < 1 ? 'end' : 'start'
+                  },
+                  anchor: 'end',
+                  backgroundColor: null,
+                  borderColor: null,
+                  borderRadius: 4,
+                  borderWidth: 1,
+                  color: '#223388',
+                  font: {
+                    size: 11,
+                    weight: 600
+                  },
+                  offset: 4,
+                  padding: 0,
+                  formatter: function(value) {
+                      return Math.round(value * 10) / 10
+                  }
                 }
-        }
+              }
+            }
         });
     });
 }
