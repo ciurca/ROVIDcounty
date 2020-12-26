@@ -6,7 +6,10 @@ fetch(proxyurl + url)
 	})
 	.then(function(data) {
 		let mydate = new Date(data.covid_romania[0].reporting_date);
-		document.getElementById("last-update").innerHTML = mydate.toDateString();
+        document.getElementById("last-update").innerHTML = mydate.toDateString();
+        let casesToday = data['covid_romania'][0]['new_cases_today'];
+        document.title = `${casesToday} cases today in Romania`
+        document.getElementById("cases-today").innerHTML = casesToday;
 	});
 
 function searchCases() {
