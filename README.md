@@ -1,5 +1,5 @@
 # ROVIDCounty
-## UPATE 28 July 2021: This site is definitely outdated and barely works.
+## UPDATE 28 July 2021: This site is definitely outdated and barely works.
 
 [![ProjectsBadge](https://img.shields.io/badge/ciurca-100DaysOfCode%20--%20Projects-blue)](https://github.com/ciurca/100-days-of-code)
 [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/raduciurca.svg?style=social&label=Follow%20%40raduciurca)](https://twitter.com/raduciurca)
