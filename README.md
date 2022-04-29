@@ -19,6 +19,12 @@ I am using JavaScript to pull in the information from a JSON file provided by [G
 
 Please support the projects above if you can, because this site wouldn't have been possible without them.
 
+## Screenshots
+
+![Top](https://i.imgur.com/gNV0DJn.jpg)
+
+![Bottom](https://i.imgur.com/pONIY7Y.jpg)
+
 ## Important note
 
 This website was created just as a means for me to better understand JavaScript and also practice it. It shouldn't be used as an actual means of getting COVID-19 Romania data, as there much better ways of getting the data (see [Graphs.ro](https://www.graphs.ro/)). 
