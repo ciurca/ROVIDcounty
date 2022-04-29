@@ -1,5 +1,6 @@
 # ROVIDCounty
-## UPDATE 28 July 2021: This site is definitely outdated and barely works.
+
+## If it doesn't load date, go to [this link](https://cors-anywhere.herokuapp.com/corsdemo) and request access to the demo server. (CORS problems)
 
 [![ProjectsBadge](https://img.shields.io/badge/ciurca-100DaysOfCode%20--%20Projects-blue)](https://github.com/ciurca/100-days-of-code)
 [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/raduciurca.svg?style=social&label=Follow%20%40raduciurca)](https://twitter.com/raduciurca)
